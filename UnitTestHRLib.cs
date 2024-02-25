@@ -23,13 +23,13 @@ namespace UnitTestHRLib
             object[,] testcases =
             {
                 { 1, "Vaggelis@", false, msg1  },
-                { 2, "Johnh", true , msg1, },
-                { 3, "Georgiahh", true , msg1, },
+                { 2, "Johnh Hifujd", true , msg1, },
+                { 3, "Georgiahh kdnol", true , msg1, },
                 { 4, "Antonis23", false, msg1, },
-                { 5, "Dimitri", true , msg1, },
-                { 6, "Eleni", true , msg1, },
-                { 7, "Artemis", true , msg1, },
-                { 8, "Spiros", true , msg1, }
+                { 5, "Dimitri ndsgfjk", true , msg1, },
+                { 6, "Eleni Guduj", true , msg1, },
+                { 7, "Artemis DGGFD2", false , msg1, },
+                { 8, "Spiros Fsuu", true , msg1, }
             };
 
             int i = 0;
@@ -165,7 +165,7 @@ namespace UnitTestHRLib
                 {
                     int TypePhone = 2;
 
-                    string InfoPhone = "";
+                    string InfoPhone = "2";
 
                     hr.CheckPhone((string)testcases4[i, 1], ref TypePhone, ref InfoPhone);
 
