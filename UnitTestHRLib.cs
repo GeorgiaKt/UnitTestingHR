@@ -28,8 +28,8 @@ namespace UnitTestHRLib
                 { 4, "Antonis23", false, msg1, },
                 { 5, "Dimitri ndsgfjk", true , msg1, },
                 { 6, "Eleni Guduj", true , msg1, },
-                { 7, "Artemis DGGFD2", false , msg1, },
-                { 8, "Spiros Fsuu", true , msg1, }
+                { 7, "Artemis DGGFD2KROUSKAPERASEMASSSSS", false , msg1, },
+                { 8, "Spiros Fsouu", true , msg1, }
             };
 
             int i = 0;
