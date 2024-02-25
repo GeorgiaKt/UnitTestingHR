@@ -8,12 +8,12 @@ namespace UnitTestHRLib
     [TestClass]
     public class UnitTestHRLib
     {
-        const string msg1 = "Name must not contain ";
-        const string msg2 = "Password must not contain ";
-        const string msg3 = "Password did not expected  ";
-        const string msg4 = "Password did not expected  ";
-        const string msg5 = "Password did not expected  ";
-        const string msg6 = "Password did not expected  ";
+        const string msg1 = "Must be Name [space] Surname. Must not contain Numbers and Symbols.";
+        const string msg2 = "Password must be 12 characters, starts with Head Letter, must contain at least one, letter, number, symbol and ends with Number.";
+        const string msg3 = "Password Encryption works with Ceasar Cipher by 5 position shifting.";
+        const string msg4 = "All phone number must be 10 numbers. Home Numbers must start with 2 and Mobile Numbers must start with 69.";
+        const string msg5 = "Employees Age and Years of Experience is calculated by subtracting it from the running year.";
+        const string msg6 = "LiveInAthens uses the Home Number to check if an Employee Lives in Athens.";
 
         [TestMethod]
         public void TestMethodValidName()
@@ -22,14 +22,14 @@ namespace UnitTestHRLib
 
             object[,] testcases =
             {
-                { 1, "Vaggelis@", false, msg1  },
-                { 2, "Johnh Hifujd", true , msg1, },
-                { 3, "Georgiahh kdnol", true , msg1, },
-                { 4, "Antonis23", false, msg1, },
-                { 5, "Dimitri ndsgfjk", true , msg1, },
-                { 6, "Eleni Guduj", true , msg1, },
-                { 7, "Artemis DGGFD2KROUSKAPERASEMASSSSS", false , msg1, },
-                { 8, "Spiros Fsouu", true , msg1, }
+                { 1, "JohnSmith"        , false , msg1  },
+                { 2, "Mary Johnson"     , true  , msg1, },
+                { 3, "David Lee"        , true  , msg1, },
+                { 4, "Emily Chen23@"    , false , msg1, },
+                { 5, "Michael Davis"    , true  , msg1, },
+                { 6, "Sarah Wilson"     , true  , msg1, },
+                { 7, "Christopher Brown", true  , msg1, },
+                { 8, "Jennifer Martinez", true  , msg1, }
             };
 
             int i = 0;
@@ -68,7 +68,7 @@ namespace UnitTestHRLib
                 { 4, "123456789101"   , false , msg2 },
                 { 5, "Azhfioshukhk"   , false , msg2 },
                 { 6, "zhfiorghdygc"   , false , msg2 },
-                { 7, "E&#156489631"   , false  , msg2 },
+                { 7, "E&#156489631"   , false , msg2 },
                 { 8, "Afjh856#gjd2"   , true  , msg2 }
             };
 
@@ -192,14 +192,14 @@ namespace UnitTestHRLib
         {
             HRLib.HRLib hr = new HRLib.HRLib();
 
-            Employee emp1 = new Employee("Vaggelis@", "2108088661", "6984285123", new DateTime(1995, 3, 1), new DateTime(2010, 4, 1));
-            Employee emp2 = new Employee("Johnh", "2208088661", "6934285123", new DateTime(2000, 5, 1), new DateTime(2015, 4, 1));
-            Employee emp3 = new Employee("Georgiahh", "2308088661", "6944285123", new DateTime(1997, 6, 1), new DateTime(2010, 4, 1));
-            Employee emp4 = new Employee("Antonis23", "2408088661", "6954285123", new DateTime(1985, 3, 1), new DateTime(2012, 4, 1));
-            Employee emp5 = new Employee("Dimitri", "2508088661", "6974285123", new DateTime(1972, 3, 1), new DateTime(2020, 4, 1));
-            Employee emp6 = new Employee("Eleni", "2608088661", "6934285123", new DateTime(1991, 3, 1), new DateTime(2020, 4, 1));
-            Employee emp7 = new Employee("Artemis", "2708088661", "6984285123", new DateTime(1999, 3, 1), new DateTime(2022, 4, 1));
-            Employee emp8 = new Employee("Spiros", "2808088661", "6484285123", new DateTime(1990, 3, 1), new DateTime(2021, 4, 1));
+            Employee emp1 = new Employee("JohnSmith", "2108088661", "6984285123", new DateTime(1995, 3, 1), new DateTime(2010, 4, 1));
+            Employee emp2 = new Employee("Mary Johnson", "2208088661", "6934285123", new DateTime(2000, 5, 1), new DateTime(2015, 4, 1));
+            Employee emp3 = new Employee("David Lee", "2308088661", "6944285123", new DateTime(1997, 6, 1), new DateTime(2010, 4, 1));
+            Employee emp4 = new Employee("Emily Chen23@", "2408088661", "6954285123", new DateTime(1985, 3, 1), new DateTime(2012, 4, 1));
+            Employee emp5 = new Employee("Michael Davis", "2508088661", "6974285123", new DateTime(1972, 3, 1), new DateTime(2020, 4, 1));
+            Employee emp6 = new Employee("Sarah Wilson", "2608088661", "6934285123", new DateTime(1991, 3, 1), new DateTime(2020, 4, 1));
+            Employee emp7 = new Employee("Christopher Brown", "2708088661", "6984285123", new DateTime(1999, 3, 1), new DateTime(2022, 4, 1));
+            Employee emp8 = new Employee("Jennifer Martinez", "2808088661", "6484285123", new DateTime(1990, 3, 1), new DateTime(2021, 4, 1));
 
             object[,] testcases5 =
             {
@@ -207,8 +207,8 @@ namespace UnitTestHRLib
                 { 2, emp2 , 24 , 9  , msg5 },
                 { 3, emp3 , 27 , 14 , msg5 },
                 { 4, emp4 , 39 , 12 , msg5 },
-                { 5, emp5 , 52 , 4 , msg5 },
-                { 6, emp6 , 33 , 4 , msg5 },
+                { 5, emp5 , 52 , 4  , msg5 },
+                { 6, emp6 , 33 , 4  , msg5 },
                 { 7, emp7 , 25 , 2  , msg5 },
                 { 8, emp8 , 34 , 3  , msg5 }
             };
@@ -249,14 +249,14 @@ namespace UnitTestHRLib
         {
             HRLib.HRLib hr = new HRLib.HRLib();
 
-            Employee emp1 = new Employee("Vaggelis@", "2108088661", "6984285123", new DateTime(1995, 3, 1), new DateTime(2010, 4, 1));
-            Employee emp2 = new Employee("Johnh", "2208088661", "6934285123", new DateTime(2000, 5, 1), new DateTime(2015, 4, 1));
-            Employee emp3 = new Employee("Georgiahh", "2308088661", "6944285123", new DateTime(1997, 6, 1), new DateTime(2010, 4, 1));
-            Employee emp4 = new Employee("Antonis23", "2408088661", "6954285123", new DateTime(1985, 3, 1), new DateTime(2012, 4, 1));
-            Employee emp5 = new Employee("Dimitri", "2508088661", "6974285123", new DateTime(1972, 3, 1), new DateTime(2020, 4, 1));
-            Employee emp6 = new Employee("Eleni", "2608088661", "6934285123", new DateTime(1991, 3, 1), new DateTime(2020, 4, 1));
-            Employee emp7 = new Employee("Artemis", "2708088661", "6984285123", new DateTime(1999, 3, 1), new DateTime(2022, 4, 1));
-            Employee emp8 = new Employee("Spiros", "2808088661", "6484285123", new DateTime(1990, 3, 1), new DateTime(2021, 4, 1));
+            Employee emp1 = new Employee("JohnSmith", "2108088661", "6984285123", new DateTime(1995, 3, 1), new DateTime(2010, 4, 1));
+            Employee emp2 = new Employee("Mary Johnson", "2208088661", "6934285123", new DateTime(2000, 5, 1), new DateTime(2015, 4, 1));
+            Employee emp3 = new Employee("David Lee", "2308088661", "6944285123", new DateTime(1997, 6, 1), new DateTime(2010, 4, 1));
+            Employee emp4 = new Employee("Emily Chen23@", "2408088661", "6954285123", new DateTime(1985, 3, 1), new DateTime(2012, 4, 1));
+            Employee emp5 = new Employee("Michael Davis", "2508088661", "6974285123", new DateTime(1972, 3, 1), new DateTime(2020, 4, 1));
+            Employee emp6 = new Employee("Sarah Wilson", "2608088661", "6934285123", new DateTime(1991, 3, 1), new DateTime(2020, 4, 1));
+            Employee emp7 = new Employee("Christopher Brown", "2708088661", "6984285123", new DateTime(1999, 3, 1), new DateTime(2022, 4, 1));
+            Employee emp8 = new Employee("Jennifer Martinez", "2808088661", "6484285123", new DateTime(1990, 3, 1), new DateTime(2021, 4, 1));
 
             Employee[] Employees = { emp1, emp2, emp3, emp4, emp5, emp6, emp7, emp8 };
 
